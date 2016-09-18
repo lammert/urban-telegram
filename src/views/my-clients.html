@@ -23,12 +23,18 @@ Example:
 				display: block;
 			}
 		</style>
+		<app-route
+		    route="{{route}}"
+		    pattern="/:clientId"
+		    data="{{routeData}}"></app-route>
+
 		Clients
 		<br>
 		{{clients.1.FirstName}}
 		<br>
 		<button on-tap="_getClients">Request clients</button><br>
 		<my-clients-elm></my-clients-elm>
+		details for client : {{routeData.clientId}}
 	</template>
 	<script>
 		Polymer({
