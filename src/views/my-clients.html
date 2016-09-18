@@ -1,0 +1,53 @@
+<!--
+A comment describing this element
+
+Example:
+
+    <my-elem></my-elem>
+
+Example:
+
+    <my-elem>
+      <h2>Hello my-elem</h2>
+    </my-elem>
+
+@demo demo/index.html
+-->
+<link rel="import" href="my-clients-elm.html">
+<link rel="import" href="../api/api-client.html">
+
+<dom-module id="my-clients">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+		</style>
+		Clients
+		<br>
+		{{clients.1.FirstName}}
+		<br>
+		<button on-tap="_getClients">Request clients</button><br>
+		<my-clients-elm></my-clients-elm>
+	</template>
+	<script>
+		Polymer({
+			is: 'my-clients',
+
+			properties : {
+				clients : Object
+			},
+
+			ready : function(){
+				this._getClients();
+			},
+
+			_getClients : function(){
+				var self = this;
+				apiClientsMixin.getClients(function(resp){
+					self.clients = resp.data;
+				})
+			}
+		});
+	</script>
+</dom-module>

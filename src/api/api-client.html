@@ -1,0 +1,21 @@
+<script>
+var apiClientsMixin = {
+	getClients : function(callback){
+		document.getElementsByTagName('my-app')[0].doApiCall()
+		resp =  {
+			data : [
+				{ 	FirstName : 'First',
+					LastName : 'Person1'
+				},
+				{ 	FirstName : 'Second',
+					LastName : 'Person2'
+				},
+				{ 	FirstName : 'Third',
+					LastName : 'Person3'
+				}
+			]
+		};
+		callback(resp);
+	}
+}
+</script>
